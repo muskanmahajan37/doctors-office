@@ -24,5 +24,12 @@ describe 'Doctor' do
       new_doctor.save
       expect(Doctor.all[0]).to eq new_doctor
     end
+
+    it 'gives the doctor object an id' do
+      new_doctor = Doctor.new({:name => 'Franklin Jones'})
+      expect(new_doctor.id).to eq nil
+      new_doctor.save
+      expect(Doctor.all[0].id).to eq new_doctor.id
+    end
   end
 end
