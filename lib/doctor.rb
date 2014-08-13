@@ -20,9 +20,9 @@ class Doctor
     doctors
   end
 
-  def self.find arg
+  def self.find_by_id arg
     doctor = []
-    results = DB.exec("SELECT * FROM doctors WHERE id = #{arg} OR name = '#{arg}';")
+    results = DB.exec("SELECT * FROM doctors WHERE id = #{arg};")
     results.each do |result|
       attributes = {
         :id => result['id'].to_i,
