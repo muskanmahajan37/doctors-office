@@ -32,4 +32,13 @@ describe 'Doctor' do
       expect(Doctor.all[0].id).to eq new_doctor.id
     end
   end
+
+  describe 'remove' do
+    it 'deletes a doctor' do
+      new_doctor = Doctor.new({:name => 'Franklin Jones'})
+      new_doctor.save
+      new_doctor.remove
+      expect(Doctor.all). to eq []
+    end
+  end
 end

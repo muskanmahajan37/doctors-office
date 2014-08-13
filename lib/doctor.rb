@@ -25,6 +25,10 @@ class Doctor
     @id = result.first['id'].to_i
   end
 
+  def remove
+    DB.exec("DELETE FROM doctors WHERE id = #{id}")
+  end
+
   def == arg
     self.name == arg.name && self.id == arg.id
   end
