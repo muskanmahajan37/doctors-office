@@ -17,4 +17,12 @@ describe 'Company' do
       expect(Company.all).to eq []
     end
   end
+
+  describe 'save' do
+    it 'saves a company' do
+      new_company = Company.new({:name => 'Diamonte'})
+      new_company.save
+      expect(Company.all).to eq [new_company]
+    end
+  end
 end

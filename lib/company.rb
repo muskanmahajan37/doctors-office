@@ -19,4 +19,9 @@ class Company
     end
     companies
   end
+
+  def save
+    result = DB.exec("INSERT INTO companies (name) VALUES ('#{name}') RETURNING id;")
+    @id = result.first['id'].to_i
+  end
 end
