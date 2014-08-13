@@ -19,4 +19,8 @@ class Doctor
     end
     doctors
   end
+
+  def == arg
+    self.name == arg.name && self.id == arg.id
+  end
 end
