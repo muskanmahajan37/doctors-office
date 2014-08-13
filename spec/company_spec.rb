@@ -32,4 +32,13 @@ describe 'Company' do
       expect(Company.all[0].id).to eq new_company.id
     end
   end
+
+  describe 'remove' do
+    it 'deletes a company' do
+      new_company = Company.new({:name => 'Blue Cross'})
+      new_company.save
+      new_company.remove
+      expect(Company.all).to eq []
+    end
+  end
 end
