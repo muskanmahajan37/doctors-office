@@ -40,5 +40,14 @@ describe 'Company' do
       new_company.remove
       expect(Company.all).to eq []
     end
+
+    it 'only deletes the company remove is called on' do
+      new_company1 = Company.new({:name => 'Blue Cross'})
+      new_company1.save
+      new_company2 = Company.new({:name => 'Life Alert LLC'})
+      new_company2.save
+      new_company1.remove
+      expect(Company.all).to eq [new_company2]
+    end
   end
 end
