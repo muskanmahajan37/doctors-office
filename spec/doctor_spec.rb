@@ -14,7 +14,7 @@ describe 'Doctor' do
 
   describe '.all' do
     it 'starts as an empty array' do
-      expect(Doctor.all). to eq []
+      expect(Doctor.all).to eq []
     end
   end
 
@@ -38,7 +38,16 @@ describe 'Doctor' do
       new_doctor = Doctor.new({:name => 'Franklin Jones'})
       new_doctor.save
       new_doctor.remove
-      expect(Doctor.all). to eq []
+      expect(Doctor.all).to eq []
+    end
+
+    it 'only deletes the doctor remove is called on' do
+      new_doctor1 = Doctor.new({:name => 'Franklin Jones'})
+      new_doctor1.save
+      new_doctor2 = Doctor.new({:name => 'Mary Winters'})
+      new_doctor2.save
+      new_doctor1.remove
+      expect(Doctor.all).to eq [new_doctor2]
     end
   end
 end
