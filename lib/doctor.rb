@@ -6,4 +6,8 @@ class Doctor
     @id = attributes[:id]
     @name = attributes[:name]
   end
+
+  def self.all
+    doctors = []
+  end
 end
