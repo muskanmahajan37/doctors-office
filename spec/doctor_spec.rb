@@ -22,7 +22,7 @@ describe 'Doctor' do
     it 'saves a doctor' do
       new_doctor = Doctor.new({:name => 'Franklin Jones'})
       new_doctor.save
-      expect(Doctor.all[0]).to eq new_doctor
+      expect(Doctor.all).to eq [new_doctor]
     end
 
     it 'gives the doctor object an id' do
