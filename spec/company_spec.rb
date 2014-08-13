@@ -24,5 +24,12 @@ describe 'Company' do
       new_company.save
       expect(Company.all).to eq [new_company]
     end
+
+    it 'gives the company object an id' do
+      new_company = Company.new({:name => 'Shasta Health'})
+      expect(new_company.id).to eq nil
+      new_company.save
+      expect(Company.all[0].id).to eq new_company.id
+    end
   end
 end
