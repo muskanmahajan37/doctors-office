@@ -18,6 +18,14 @@ describe 'Doctor' do
     end
   end
 
+  describe '.find' do
+    it 'returns a doctor when given an id' do
+      new_doctor = Doctor.new({:name => 'Franklin Jones'})
+      new_doctor.save
+      expect(Doctor.find(new_doctor.id)).to eq new_doctor
+    end
+  end
+
   describe 'save' do
     it 'saves a doctor' do
       new_doctor = Doctor.new({:name => 'Franklin Jones'})

@@ -20,6 +20,19 @@ class Doctor
     doctors
   end
 
+  def self.find arg
+    doctor = []
+    results = DB.exec("SELECT * FROM doctors WHERE id = #{arg} OR name = '#{arg}';")
+    results.each do |result|
+      attributes = {
+        :id => result['id'].to_i,
+        :name => result['name']
+      }
+      doctor << Doctor.new(attributes)
+    end
+    doctor[0]
+  end
+
   def save
     result = DB.exec("INSERT INTO doctors (name) VALUES ('#{name}') RETURNING id;")
     @id = result.first['id'].to_i
