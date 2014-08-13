@@ -1,4 +1,5 @@
-class Insurance
+class Company
+
   def initialize attributes
     @id = attributes[:id]
     @name = attributes[:name]
