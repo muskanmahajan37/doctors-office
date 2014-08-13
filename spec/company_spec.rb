@@ -11,4 +11,10 @@ describe 'Company' do
     new_company = Company.new({:name => 'Tsar Health Affiliates'})
     expect(new_company.name).to eq 'Tsar Health Affiliates'
   end
+
+  describe '.all' do
+    it 'starts as an empty array' do
+      expect(Company.all).to eq []
+    end
+  end
 end
