@@ -12,12 +12,17 @@ class Doctor
     results = DB.exec("SELECT * FROM doctors;")
     results.each do |result|
       attributes = {
-        :id => result['id'],
+        :id => result['id'].to_i,
         :name => result['name']
       }
       doctors << Doctor.new(attributes)
     end
     doctors
+  end
+
+  def save
+    result = DB.exec("INSERT INTO doctors (name) VALUES ('#{name}') RETURNING id;")
+    @id = result.first['id'].to_i
   end
 
   def == arg

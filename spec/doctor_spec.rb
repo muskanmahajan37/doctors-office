@@ -17,4 +17,12 @@ describe 'Doctor' do
       expect(Doctor.all). to eq []
     end
   end
+
+  describe 'save' do
+    it 'saves a doctor' do
+      new_doctor = Doctor.new({:name => 'Franklin Jones'})
+      new_doctor.save
+      expect(Doctor.all[0]).to eq new_doctor
+    end
+  end
 end
